@@ -41,7 +41,7 @@ public class Day22 {
                     player2.addToBottom(p1);
                 }
             }
-            var winner = player1cards.isEmpty() ? player2 : player1;
+            var winner = player1.hasCards() ? player1 : player2;
             System.out.println("Part 1: " + winner.score());
 
             // Part 2
