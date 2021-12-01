@@ -1,17 +1,25 @@
 package com.macasaet;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.util.Objects;
+import java.util.Properties;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
 public class LineSpliterator implements Spliterator<String>, AutoCloseable {
 
+    private static final String prefix;
     private final BufferedReader reader;
+
+    static {
+        final var properties = new Properties();
+        try {
+            final var config = LineSpliterator.class.getResourceAsStream("/config.properties");
+            if (config != null) properties.load(config);
+        } catch (final IOException ignored) {
+        }
+        prefix = properties.getProperty("prefix", "/sample");
+    }
 
     public LineSpliterator(final BufferedReader reader) {
         Objects.requireNonNull(reader);
@@ -24,6 +32,10 @@ public class LineSpliterator implements Spliterator<String>, AutoCloseable {
 
     public LineSpliterator(final InputStream stream) {
         this(new InputStreamReader(stream));
+    }
+
+    public LineSpliterator(final String fileName) {
+        this(LineSpliterator.class.getResourceAsStream(prefix + "/" + fileName));
     }
 
     public boolean tryAdvance(final Consumer<? super String> action) {
