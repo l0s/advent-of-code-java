@@ -47,7 +47,6 @@ public class LineSpliterator implements Spliterator<String>, AutoCloseable {
             }
             reader.close();
         } catch (final IOException ioe) {
-            ioe.printStackTrace();
         }
         return false;
     }

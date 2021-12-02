@@ -16,4 +16,12 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
         check-latest: true
+    - uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: m2-${{ runner.os }}-${{ matrix.java-version }}-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          m2-${{ runner.os }}-${{ matrix.java-version }}
+          m2-${{ runner.os }}
+          m2
     - run: mvn clean install
