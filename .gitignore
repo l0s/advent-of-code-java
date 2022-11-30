@@ -7,3 +7,4 @@ target/
 src/test/resources/config.properties
 src/test/resources/input
 src/test/resources/2020
+.DS_Store

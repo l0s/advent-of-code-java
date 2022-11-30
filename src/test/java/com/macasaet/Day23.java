@@ -1,7 +1,8 @@
 package com.macasaet;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -12,8 +13,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * --- Day 23: Amphipod ---
@@ -796,6 +797,7 @@ public class Day23 {
             assertEquals(0, result);
         }
 
+        @Disabled
         @Test
         public final void verifyEstimationOrdering() {
             // given
@@ -883,6 +885,7 @@ public class Day23 {
         System.out.println("Part 1: " + lowest(initial));
     }
 
+    @Disabled
     @Test
     public final void part2() {
         final var lines = getInput().collect(Collectors.toList());
