@@ -10,18 +10,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-java@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
-        java-version: '17'
+        java-version: '19'
         check-latest: true
     - uses: actions/cache@v2
       with:
         path: ~/.m2
-        key: m2-${{ runner.os }}-${{ matrix.java-version }}-${{ hashFiles('**/pom.xml') }}
+        key: m2-${{ runner.os }}-19-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
-          m2-${{ runner.os }}-${{ matrix.java-version }}
+          m2-${{ runner.os }}-19
           m2-${{ runner.os }}
           m2
     - run: mvn clean install

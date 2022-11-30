@@ -6,21 +6,21 @@
 
   <groupId>com.macasaet</groupId>
   <artifactId>advent-of-code</artifactId>
-  <version>0.2021.0-SNAPSHOT</version>
+  <version>0.2022.0-SNAPSHOT</version>
 
-  <name>Advent of Code 2021</name>
+  <name>Advent of Code 2022</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>19</maven.compiler.source>
+    <maven.compiler.target>19</maven.compiler.target>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
-      <version>5.8.2</version>
+      <version>5.9.0</version>
     </dependency>
   </dependencies>
 
