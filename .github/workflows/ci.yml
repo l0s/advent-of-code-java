@@ -16,7 +16,7 @@ jobs:
         distribution: 'temurin'
         java-version: '19'
         check-latest: true
-    - uses: actions/cache@v2
+    - uses: actions/cache@v3
       with:
         path: ~/.m2
         key: m2-${{ runner.os }}-19-${{ hashFiles('**/pom.xml') }}
