@@ -83,18 +83,19 @@ public class Day02 {
         };
 
         public static Shape forChar(final int c) {
-            switch (c) {
+            return switch (c) {
                 case 'X':
                 case 'A':
-                    return Shape.Rock;
+                    yield Shape.Rock;
                 case 'Y':
                 case 'B':
-                    return Shape.Paper;
+                    yield Shape.Paper;
                 case 'Z':
                 case 'C':
-                    return Shape.Scissors;
-            }
-            throw new IllegalArgumentException();
+                    yield Shape.Scissors;
+                default:
+                    throw new IllegalArgumentException("Invalid shape: " + c);
+            };
         }
 
         /**
@@ -134,15 +135,12 @@ public class Day02 {
         };
 
         public static ResponseStrategy forChar(final char c) {
-            switch (c) {
-                case 'X':
-                    return Lose;
-                case 'Y':
-                    return Draw;
-                case 'Z':
-                    return Win;
-            }
-            throw new IllegalArgumentException();
+            return switch (c) {
+                case 'X' -> Lose;
+                case 'Y' -> Draw;
+                case 'Z' -> Win;
+                default -> throw new IllegalArgumentException("Invalid strategy: " + c);
+            };
         }
 
         public abstract Shape respond(final Shape opponent);
