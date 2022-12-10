@@ -133,7 +133,6 @@ public class Day10 {
             final var sideEffects = state.execute(instruction);
             for(final var sideEffect : sideEffects) {
                 if(interestingCycles.contains(sideEffect.cycle)) {
-//                    System.err.println("During cycle " + sideEffect.cycle() + ", register X has the value " + sideEffect.register() + ", so the signal strength is " + sideEffect.signalStrength());
                     accumulator.addAndGet(sideEffect.signalStrength());
                 }
             }
