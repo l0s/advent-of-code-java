@@ -156,7 +156,6 @@ public class Day09 {
         getInput().forEach(rope::process);
         final var result = rope.countVisited();
         System.out.println("Part 1: " + result);
-        // NOT 7017
     }
 
     @Test
